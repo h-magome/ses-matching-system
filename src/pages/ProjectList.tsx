@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Search, Filter } from 'lucide-react';
 
 const ProjectList: React.FC = () => {
@@ -74,7 +74,7 @@ const ProjectList: React.FC = () => {
       </div>
       <div className="space-y-4">
         {filteredProjects.map(project => (
-          <Link to={`/projects/${project.id}`} key={project.id} className="block">
+          <Link href={`/projects/${project.id}`} key={project.id}>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">{project.title}</h2>
               <p className="text-gray-600 mb-4">期間: {project.period}</p>

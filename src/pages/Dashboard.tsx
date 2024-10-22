@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { FileText, Briefcase, PieChart, Users } from 'lucide-react';
 
 const Dashboard: React.FC = () => {
@@ -45,12 +45,14 @@ interface DashboardCardProps {
 
 const DashboardCard: React.FC<DashboardCardProps> = ({ title, icon, description, link }) => {
   return (
-    <Link to={link} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-      <div className="flex items-center space-x-4 mb-4">
-        <div className="bg-green-100 p-3 rounded-full">{icon}</div>
-        <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
+    <Link href={link} className="block">
+      <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div className="flex items-center space-x-4 mb-4">
+          <div className="bg-green-100 p-3 rounded-full">{icon}</div>
+          <h2 className="text-xl font-semibold text-gray-800">{title}</h2>
+        </div>
+        <p className="text-gray-600">{description}</p>
       </div>
-      <p className="text-gray-600">{description}</p>
     </Link>
   );
 };

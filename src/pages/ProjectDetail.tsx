@@ -1,9 +1,11 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 const ProjectDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const router = useRouter();
+  const { id } = router.query;
 
   // Mock project data (in a real app, you'd fetch this data based on the ID)
   const project = {
@@ -40,7 +42,7 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <Link to="/projects" className="flex items-center text-green-600 hover:text-green-800 mb-4">
+      <Link href="/projects" className="flex items-center text-green-600 hover:text-green-800 mb-4">
         <ArrowLeft size={20} className="mr-2" />
         案件一覧に戻る
       </Link>

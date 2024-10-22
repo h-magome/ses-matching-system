@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { ArrowLeft, Briefcase } from 'lucide-react';
 import ProjectDetailModal from '../components/ProjectDetailModal';
 
 const EngineerDetail: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const router = useRouter();
+  const { id } = router.query;
   const [showMatchingProjects, setShowMatchingProjects] = useState(false);
   const [selectedProject, setSelectedProject] = useState<any | null>(null);
 
@@ -90,7 +92,7 @@ const EngineerDetail: React.FC = () => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <Link to="/engineers" className="flex items-center text-green-600 hover:text-green-800 mb-4">
+      <Link href="/engineers" className="flex items-center text-green-600 hover:text-green-800 mb-4">
         <ArrowLeft size={20} className="mr-2" />
         エンジニア一覧に戻る
       </Link>

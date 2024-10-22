@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Search, Filter } from 'lucide-react';
 
 const EngineerList: React.FC = () => {
@@ -49,7 +49,7 @@ const EngineerList: React.FC = () => {
       </div>
       <div className="space-y-4">
         {filteredEngineers.map(engineer => (
-          <Link to={`/engineers/${engineer.id}`} key={engineer.id} className="block">
+          <Link href={`/engineers/${engineer.id}`} key={engineer.id}>
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <h2 className="text-xl font-semibold text-gray-800 mb-2">{engineer.name}（{engineer.age}歳・{engineer.gender}）</h2>
               <p className="text-gray-600 mb-2">タイプ: {engineer.type}</p>
